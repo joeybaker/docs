@@ -50,7 +50,7 @@ Here is an example of setting up a `winston` logger.  This example includes most
       require('winston-mongo').Mongo;
       var logger = new (winston.Logger)({
         transports: [
-          new winston.transports.Console()
+          new winston.transports.Console({colorize: false}) // note: nodejitsu colorizes your output for you, so it will silently fail to produce output if this option is on
           new winston.transports.File({ filename: 'path/to/all-logs.log' })
           new winston.transports.Couchdb({ 'host': 'localhost', 'db': 'logs' })
           new winston.transports.Riak({ bucket: 'logs' })
